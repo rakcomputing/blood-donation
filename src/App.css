@@ -349,3 +349,10 @@ body {
     transform: rotate(360deg);
   }
 }
+
+.print-footer span {
+  font-size: 12px;
+  margin-left: 10;
+  line-height: 1.6;
+
+}

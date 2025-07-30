@@ -16,21 +16,36 @@ function App() {
   const [loading, setLoading] = useState(true);
   const getList = async () => {
     try {
-      setLoading(true); // Start loading
+      setLoading(true);
       const res = await fetch(
         `https://his-api.votmean.app/api/donatorqrcodeintergrate/${id}`
       );
+
       if (!res.ok) {
-        throw new Error(`Error: ${res.statusText}`);
+        throw new Error(`Network error: ${res.status} ${res.statusText}`);
       }
+
       const api = await res.json();
-      setDonor(api.api_donor?.[1] || null);
+      console.log("✅ API raw response:", api);
+
+      // Add this check
+      if (!api || typeof api !== "object") {
+        console.warn("⚠️ API response is not an object. Stopping here.");
+        return;
+      }
+
+      if (Array.isArray(api)) {
+        console.warn("⚠️ API response is an array. Did you mean api[0]?");
+        console.log("Array response content:", api);
+      }
+
+      // Optional: safe access
+      setDonor(api.api_donor?.[0] || null);
       setDataDonor(api.api_donor_diagnosis || []);
-      console.log("this is api ", api);
     } catch (error) {
-      console.error("Failed to fetch data:", error);
+      console.error("❌ Failed to fetch data:", error);
     } finally {
-      setLoading(false); // End loading
+      setLoading(false);
     }
   };
 
@@ -142,7 +157,10 @@ function App() {
                   </div>
                   <div>
                     <QrWithIcon
-                      value={data.ingerate_qrcode_id}
+                      value={
+                        "https://blood-donation-pi-green.vercel.app/" +
+                        data.ingerate_qrcode_id
+                      }
                       iconUrl="https://his-api.votmean.app/photo/hmis_staff/logo-app/file_image_logo-1751532094075-192528665-min.png"
                     />
                   </div>
@@ -540,6 +558,21 @@ function App() {
                   )}
                 </>
               )}
+            </div>
+            {/* Footer */}
+            <div
+              className="print-footer"
+              style={{
+                marginTop: "10px",
+                textAlign: "right",
+                paddingTop: "10px",
+              }}
+            >
+              <span>ថ្ងៃ……….ខែ……….ឆ្នាំ……….</span>
+              <br />
+              <span style={{ marginRight: "30px", fontWeight: "bold" }}>
+                ហត្ថលេខាគ្រូពេទ្យ
+              </span>
             </div>
           </div>
         </div>

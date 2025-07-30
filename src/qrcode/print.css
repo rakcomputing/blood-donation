@@ -1,0 +1,113 @@
+.print-only {
+    display: none;
+}
+
+@media print {
+    .print-only {
+        display: block !important;
+    }
+}
+
+@page {
+    size: A4;
+    margin-top: 5mm;
+    margin-left: 20mm;
+    margin-right: 20mm;
+    margin-bottom: 20mm;
+
+}
+
+.even-row {
+    background-color: rgb(249, 248, 248);
+    /* light blue */
+}
+
+.odd-row {
+    background-color: rgb(249, 248, 248);
+}
+
+.ant-table-thead>tr>th {
+    text-align: center;
+}
+
+.khmer-font {
+
+    font-family: 'Content', sans-serif;
+    font-size: 12px;
+}
+
+.khmer-font form input {
+    height: 40px;
+
+    font-family: 'Content', 'Khmer OS Content', sans-serif;
+    font-size: 14px;
+}
+
+.khmer-font form input[type="radio"],
+.khmer-font form input[type="checkbox"] {
+    font-family: 'Content', 'Khmer OS Content', sans-serif;
+    font-size: 12px;
+}
+
+.khmer-font form .ant-picker {
+    height: 40px;
+
+    font-size: 12px;
+}
+
+.khmer-font form label {
+    font-family: 'Content', 'Khmer OS Content', sans-serif;
+    font-size: 12px;
+}
+
+.print-content {
+    line-height: 1;
+
+}
+
+.print-content p {
+    font-size: 12px;
+    margin-left: 10;
+    color: black;
+
+}
+
+.print-content p b {
+    color: rgb(13, 75, 191);
+}
+
+.print-content .ant-row .ant-col span b {
+    color: rgb(13, 75, 191);
+}
+
+.print-content span {
+    font-size: 12px;
+    margin-left: 10;
+    line-height: 1.8;
+
+}
+
+.print-footer span {
+    font-size: 12px;
+    margin-left: 10;
+    line-height: 1.6;
+
+}
+
+.header-text {
+    font-size: 13px;
+    /* Adjust font size as needed */
+    font-family: 'Moul', serif;
+    /* Add any other styles you want for the text */
+}
+
+.donation-box {
+    width: 170px;
+    background-color: #f7e1e1;
+    color: #aa0303;
+    font-weight: bold;
+    padding: 3px;
+    padding-left: 20px;
+
+    border-radius: 8px;
+}

@@ -1,12 +1,17 @@
+/* General Styles */
 body {
-  background-color: #e2dfdf;
+
+  background-color: #ffffff;
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: "Content", system-ui;
+  line-height: 1.5;
+  color: #333333;
+  /* Default text color */
 }
 
+/* User Card Wrapper */
 .user-card {
   background-color: #ffffff;
-  /* Background color */
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -14,20 +19,20 @@ body {
   padding: 20px;
 }
 
+/* User Info Card */
 .user-info {
   max-width: 600px;
   width: 100%;
   background-color: #f8f9fa;
-  /* Background color */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   overflow: hidden;
-  position: relative;
-  /* Position relative to the parent */
   display: flex;
   flex-direction: column;
+
 }
 
+/* User Background Image */
 .user-image {
   width: 100%;
   height: 250px;
@@ -35,38 +40,41 @@ body {
   display: block;
 }
 
-.user-info {
+/* User Information */
+.user-details {
   padding: 20px;
+  text-align: center;
+  /* Center align text */
 }
 
 .user-name {
   font-size: 24px;
   font-weight: bold;
   color: #333333;
-  /* Text color */
-  margin-top: 0;
+  margin: 0;
 }
 
+.user-idnumber,
 .user-department,
 .user-position,
-.user-idnumber,
 .user-username {
   font-size: 16px;
   color: #666666;
-  /* Text color */
   margin: 8px 0;
 }
 
+/* Buttons and Actions */
 .user-actions {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 12px;
   margin-top: 16px;
 }
 
 .view-profile {
   color: #007bff;
-  /* Text color */
   text-decoration: none;
+  font-size: 14px;
 }
 
 .view-profile:hover {
@@ -75,15 +83,250 @@ body {
 
 .contact-button {
   background-color: #28a745;
-  /* Button background color */
   color: #ffffff;
   padding: 8px 16px;
   border: none;
   border-radius: 4px;
+  font-size: 14px;
   cursor: pointer;
 }
 
 .contact-button:hover {
   background-color: #218838;
-  /* Button hover background color */
 }
+.image-profile {
+  width: 150px;
+  height: 170px;
+  border-radius: 8%;
+  /* Circular shape */
+  border: 2px solid white;
+  /* White border */
+  position: absolute;
+  top: 180px;
+  /* Distance from the top */
+  left: 50%;
+  /* Center horizontally */
+  transform: translateX(-50%);
+  /* Center relative to the parent */
+ 
+  /* Subtle shadow effect */
+}
+     /* Ensure A4 paper size */
+     @page {
+       size: A4;
+       margin: -1mm;
+     }
+ 
+@media (max-width: 900px) {
+  .image-profile {
+      top: 31%;
+      width: 160px;
+      height: 160px;
+    }
+  .div-container {
+    position: absolute;
+    top: 45%;
+    left: 25%;
+    line-height: 1.1;
+    font-size: 18px;
+  }
+}
+@media (min-width: 900px) {
+  .image-profile {
+    top: 31%;
+    width: 160px;
+    height: 160px;
+  }
+
+  .div-container {
+    position: absolute;
+    top: 46%;
+    left: 30%;
+    line-height: 1.3;
+    font-size: 16px;
+  }
+}
+@media (max-width: 850px) {
+  .image-profile {
+      top: 31%;
+      width: 140px;
+      height: 140px;
+    }
+  .div-container {
+    position: absolute;
+    top: 45%;
+    left: 30%;
+    line-height: 1.2;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .image-profile {
+      top: 32%;
+      width: 120px;
+      height: 120px;
+    }
+  .div-container {
+    position: absolute;
+    top: 45%;
+    left: 30%;
+    line-height: 1.2;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 700px) {
+  .image-profile {
+    top: 31%;
+      width: 100px;
+      height: 100px;}
+  .div-container {
+    position: absolute;
+ 
+    top: 47%;
+    left: 30%;
+    line-height: 0.9;
+    font-size: 11px;
+    
+  }
+}
+
+@media (max-width:  430px) {
+  .image-profile {
+    top: 31%;
+    width: 80px;
+    height: 80px;
+  }
+
+  .div-container {
+    position: absolute;
+    top: 49%;
+    left: 30%;
+    line-height: 0.8;
+    font-size: 9px;
+    font-family: "Content", system-ui;
+  }
+}
+ 
+
+
+.print-only {
+  display: none;
+}
+
+@media print {
+  .print-only {
+    display: block !important;
+  }
+}
+
+@page {
+  size: A4;
+  margin-top: 5mm;
+  margin-left: 20mm;
+  margin-right: 20mm;
+  margin-bottom: 20mm;
+
+}
+
+.even-row {
+  background-color: rgb(249, 248, 248);
+  /* light blue */
+}
+
+.odd-row {
+  background-color: rgb(249, 248, 248);
+}
+
+.ant-table-thead>tr>th {
+  text-align: center;
+}
+
+.khmer-font {
+
+  font-family: 'Content', sans-serif;
+  font-size: 12px;
+}
+
+.khmer-font form input {
+  height: 40px;
+
+  font-family: 'Content', 'Khmer OS Content', sans-serif;
+  font-size: 14px;
+}
+
+.khmer-font form input[type="radio"],
+.khmer-font form input[type="checkbox"] {
+  font-family: 'Content', 'Khmer OS Content', sans-serif;
+  font-size: 12px;
+}
+
+.khmer-font form .ant-picker {
+  height: 40px;
+
+  font-size: 12px;
+}
+
+.khmer-font form label {
+  font-family: 'Content', 'Khmer OS Content', sans-serif;
+  font-size: 12px;
+}
+
+.print-content {
+  line-height: 1;
+
+}
+
+.print-content p {
+  font-size: 12px;
+  margin-left: 10;
+  color: black;
+
+}
+
+.print-content p b {
+  color: rgb(13, 75, 191);
+}
+
+.print-content .ant-row .ant-col span b {
+  color: rgb(13, 75, 191);
+    font-family: 'Content', Arial, sans-serif;
+}
+.print-content .ant-row .ant-col span   {
+ 
+  font-family: 'Content', Arial, sans-serif;
+}
+.print-content span {
+  font-size: 12px;
+  margin-left: 10;
+  line-height: 1.8;
+  
+
+}
+
+.print-footer span {
+  font-size: 12px;
+  margin-left: 10;
+  line-height: 1.6;
+
+}
+
+.header-text {
+  font-size: 13px;
+  /* Adjust font size as needed */
+  font-family: 'Moul', serif;
+  /* Add any other styles you want for the text */
+}
+
+.donation-box {
+  width: 170px;
+  background-color: #f7e1e1;
+  color: #aa0303;
+  font-weight: bold;
+  padding: 3px;
+  padding-left: 20px;
+
+  border-radius: 8px;
+}
+

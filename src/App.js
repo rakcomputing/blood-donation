@@ -183,6 +183,7 @@ function App() {
                   width: "100%",
                   lineHeight: "1.5",
                 }}
+                className="print-content-profile"
               >
                 <p
                   className="header-text"

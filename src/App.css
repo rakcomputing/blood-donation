@@ -356,3 +356,7 @@ body {
   line-height: 1.6;
 
 }
+
+.print-content-profile p {
+    line-height: '1.8';
+}

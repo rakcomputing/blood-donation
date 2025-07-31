@@ -140,7 +140,7 @@ function App() {
                           style={{
                             width: "80px",
                             height: "80px",
-                            marginBottom: "5px",
+                            marginBottom: "2px",
                             marginLeft: 20,
                           }}
                         />

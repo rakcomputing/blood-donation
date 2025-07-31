@@ -631,8 +631,8 @@ function App() {
                                     ) : (
                                       <BiCircle />
                                     )}
-                                    អនុញ្ញាតផ្ដល់ឈាម ចំណុះឈាម :{" "}
-                                    <b>{item.blood_amount_ml}</b> មីលីលីត្រ
+                                    អនុញ្ញាតផ្ដល់ឈាម ចំណុះ :
+                                    <b>{item.blood_amount_ml} ml</b>
                                   </span>
                                   <br />
                                   <span
@@ -649,7 +649,7 @@ function App() {
                                     ) : (
                                       <BiCircle />
                                     )}
-                                    ហាមផ្ដល់ឈាមរហូតដល់ថ្ងៃទី{" "}
+                                    ហាមផ្ដល់ឈាមរហូតដល់ថ្ងៃទី:
                                     {item.prohibited_until_date ||
                                       "..../..../...."}
                                   </span>

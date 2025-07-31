@@ -435,7 +435,7 @@ function App() {
                               </Col>
                               <Col span={12}>
                                 <span>
-                                  • លេខស្បោងឈាម: : ...<b>{item.place_code}</b>
+                                  • លេខស្បោង: ...<b>{item.place_code}</b>
                                   ...
                                 </span>
                               </Col>
@@ -443,13 +443,13 @@ function App() {
                             <Row gutter={16}>
                               <Col span={12}>
                                 <span>
-                                  • ទម្ងន់ : ...<b>{item.weight_kg}</b>.... គក្រ
+                                  • ទម្ងន់ : ...<b>{item.weight_kg}</b>..គក្រ
                                 </span>
                               </Col>
                               <Col span={12}>
                                 <span>
-                                  • អេម៉ូក្លូប៊ីន :...<b>{item.hemoglobin}</b>
-                                  ... ក្រាម/១០០មល
+                                  • អេម៉ូក្លូប៊ីន :<b>{item.hemoglobin}</b>
+                                  ក្រាម/១០០មល
                                 </span>
                               </Col>
                             </Row>

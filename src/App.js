@@ -5,7 +5,7 @@ import { Card, Button, Typography, Image, Col, Row } from "antd";
 
 import dayjs from "dayjs";
 
-import { BiCheckCircle } from "react-icons/bi";
+import { BiCheckCircle, BiCircle } from "react-icons/bi";
 import QrWithIcon from "./qrcode/qrcode";
 
 function App() {
@@ -188,63 +188,71 @@ function App() {
                     }}
                     className="print-content-profile"
                   >
-                    <p
+                    <span
                       className="header-text"
                       style={{
                         margin: 0,
                       }}
                     >
                       ប័ណ្ណចុះឈ្មោះបរិច្ចាគឈាម
-                    </p>
+                    </span>
                   </div>
-
-                  <p>
+                  <span>
                     • គោត្តនាម និងនាមខ្លួន: <b>{data.full_name_kh} </b>
                     &nbsp;&nbsp;&nbsp;&nbsp; លេខអត្តសញ្ញាណប័ណ្ណ:{" "}
                     <b>{data.national_id}</b>
-                  </p>
-                  <p>
+                  </span>
+                  <br />
+                  <span>
                     • ថ្ងៃខែឆ្នាំកំណើត:{" "}
                     <b>{dayjs(data.dob).format("DD-MM-YYYY")} </b>
                     &nbsp;&nbsp;&nbsp;&nbsp;អាយុ: <b>{data.age}</b> ឆ្នាំ
                     &nbsp;&nbsp; ភេទ:{" "}
                     <b>
-                      {" "}
-                      {data.gender === "Male"
-                        ? "☑ ប្រុស     ☐ ស្រី"
-                        : "☐ ប្រុស     ☑ ស្រី"}
+                      {data.gender === "Male" ? (
+                        <>
+                          <BiCheckCircle /> ប្រុស
+                        </>
+                      ) : data.gender === "Female" ? (
+                        <>
+                          <BiCheckCircle /> ស្រី
+                        </>
+                      ) : null}
                     </b>
                     &nbsp;&nbsp;&nbsp;&nbsp;• ស្ថានភាពគ្រួសារ:{" "}
                     <b>
-                      {" "}
-                      {data.maritalStatus === "Single"
-                        ? "☑ នៅលីវ     ☐ រៀបការ"
-                        : "☐ នៅលីវ     ☑ រៀបការ"}
+                      {data.marital_status === "Single" ? (
+                        <>
+                          <BiCheckCircle /> នូវលីវ
+                        </>
+                      ) : data.marital_status === "Married" ? (
+                        <>
+                          <BiCheckCircle /> រៀបការ
+                        </>
+                      ) : null}
                     </b>
-                  </p>
-
-                  <p>
+                  </span>
+                  <br />
+                  <span>
                     • មុខរបរ: <b>{data.occupation}</b>&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp; • កន្លែងធ្វើការ:{" "}
                     <b>{data.workplace}</b>{" "}
-                  </p>
-                  <p>
+                  </span>
+                  <br />
+                  <span>
                     • អាសយដ្ឋាន: ផ្ទះលេខ <b>{data.houseNo}</b>, ផ្លូវលេខ{" "}
                     <b>{data.street}</b>, ភូមិ <b>{data.village_kh}</b>,
                     សង្កាត់/ឃុំ <b>{data.commune_kh}</b>, ក្រុង/ស្រុក{" "}
                     <b>{data.city_kh}</b>, <b>{data.province_kh}</b>
-                  </p>
-                  <p>
+                  </span>
+                  <br />
+                  <span>
                     • លេខទូរស័ព្ទ : <b>{data.phone1 || "............."}</b> /
                     អ៊ីម៉ែល: {data.email1 || "................."}
-                  </p>
-                  <p>
-                    (សូមមេត្តាអានដោយយកចិត្តទុកដាក់
-                    និងបំពេញសំណួរសុខភាពនៅទំព័រក្រោយ)
-                  </p>
-
+                  </span>{" "}
                   <div
                     style={{
+                      marginTop: "10px",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -255,16 +263,15 @@ function App() {
                       width: "100%",
                     }}
                   >
-                    <p
+                    <span
                       className="header-text"
                       style={{
                         margin: 0,
                       }}
                     >
                       ការវិនិច្ឆ័យរបស់គ្រូពេទ្យ
-                    </p>
+                    </span>
                   </div>
-
                   {!sigle && (
                     <>
                       {dataArray.length === 0 ? (
@@ -387,7 +394,14 @@ function App() {
                               className="donation-box"
                               style={{ marginBottom: "5px" }}
                             >
-                              <span>
+                              <span
+                                style={{
+                                  display: "inline-flex",
+                                  alignItems: "center",
+                                  gap: "4px",
+                                  marginRight: "12px",
+                                }}
+                              >
                                 <BiCheckCircle /> បរិច្ចាគឈាមលើកទី: {index + 1}
                               </span>
                             </div>
@@ -475,20 +489,65 @@ function App() {
                               </Col>
                               <Col span={18}>
                                 <span>
-                                  {isChecked("SD", item.donor_type) ? "☑" : "□"}{" "}
-                                  SD &nbsp;&nbsp;
-                                  {isChecked("cSD", item.donor_type)
-                                    ? "☑"
-                                    : "□"}{" "}
-                                  cSD &nbsp;&nbsp;
-                                  {isChecked("ED", item.donor_type)
-                                    ? "☑"
-                                    : "□"}{" "}
-                                  ED &nbsp;&nbsp;
-                                  {isChecked("RD", item.donor_type)
-                                    ? "☑"
-                                    : "□"}{" "}
-                                  RD
+                                  <span
+                                    style={{
+                                      display: "inline-flex",
+                                      alignItems: "center",
+                                      gap: "4px",
+                                      marginRight: "12px",
+                                    }}
+                                  >
+                                    {isChecked("SD", item.donor_type) ? (
+                                      <BiCheckCircle />
+                                    ) : (
+                                      <BiCircle />
+                                    )}{" "}
+                                    SD
+                                  </span>
+                                  <span
+                                    style={{
+                                      display: "inline-flex",
+                                      alignItems: "center",
+                                      gap: "4px",
+                                      marginRight: "12px",
+                                    }}
+                                  >
+                                    {isChecked("cSD", item.donor_type) ? (
+                                      <BiCheckCircle />
+                                    ) : (
+                                      <BiCircle />
+                                    )}{" "}
+                                    cSD
+                                  </span>
+                                  <span
+                                    style={{
+                                      display: "inline-flex",
+                                      alignItems: "center",
+                                      gap: "4px",
+                                      marginRight: "12px",
+                                    }}
+                                  >
+                                    {isChecked("ED", item.donor_type) ? (
+                                      <BiCheckCircle />
+                                    ) : (
+                                      <BiCircle />
+                                    )}{" "}
+                                    ED
+                                  </span>
+                                  <span
+                                    style={{
+                                      display: "inline-flex",
+                                      alignItems: "center",
+                                      gap: "4px",
+                                    }}
+                                  >
+                                    {isChecked("RD", item.donor_type) ? (
+                                      <BiCheckCircle />
+                                    ) : (
+                                      <BiCircle />
+                                    )}{" "}
+                                    RD
+                                  </span>
                                 </span>
                               </Col>
                             </Row>
@@ -498,12 +557,50 @@ function App() {
                               </Col>
                               <Col span={18}>
                                 <span>
-                                  {item.blood_bag_type === "single" ? "☑" : "□"}
-                                  ស្បោងទោល &nbsp;&nbsp;{" "}
-                                  {item.blood_bag_type === "double" ? "☑" : "□"}
-                                  ស្បោងភ្លោះ &nbsp;&nbsp;{" "}
-                                  {item.blood_bag_type === "triple" ? "☑" : "□"}
-                                  ស្បោងភ្លោះ៣
+                                  <span
+                                    style={{
+                                      display: "inline-flex",
+                                      alignItems: "center",
+                                      gap: "4px",
+                                      marginRight: "12px",
+                                    }}
+                                  >
+                                    {item.blood_bag_type === "single" ? (
+                                      <BiCheckCircle />
+                                    ) : (
+                                      <BiCircle />
+                                    )}{" "}
+                                    ស្បោងទោល
+                                  </span>
+                                  <span
+                                    style={{
+                                      display: "inline-flex",
+                                      alignItems: "center",
+                                      gap: "4px",
+                                      marginRight: "12px",
+                                    }}
+                                  >
+                                    {item.blood_bag_type === "double" ? (
+                                      <BiCheckCircle />
+                                    ) : (
+                                      <BiCircle />
+                                    )}{" "}
+                                    ស្បោងភ្លោះ
+                                  </span>
+                                  <span
+                                    style={{
+                                      display: "inline-flex",
+                                      alignItems: "center",
+                                      gap: "4px",
+                                    }}
+                                  >
+                                    {item.blood_bag_type === "triple" ? (
+                                      <BiCheckCircle />
+                                    ) : (
+                                      <BiCircle />
+                                    )}{" "}
+                                    ស្បោងភ្លោះ៣
+                                  </span>
                                 </span>
                               </Col>
                             </Row>
@@ -513,73 +610,117 @@ function App() {
                                   • <b>ការវិនិច្ឆ័យ:</b>
                                 </span>
                               </Col>
+
                               <Col span={18}>
-                                <span>
-                                  {item.diagnosis_result === "allowed"
-                                    ? "☑"
-                                    : "□"}
-                                  អនុញ្ញាតផ្ដល់ឈាម - ចំណុះឈាមត្រូវបូម : ..
-                                  <b>{item.blood_amount_ml}</b>.. មីលីលីត្រ
-                                  <br />{" "}
-                                  {item.diagnosis_result === "temporary_ban"
-                                    ? "☑"
-                                    : "□"}
-                                  ហាមផ្ដល់ឈាមមួយរយៈរហូតដល់ថ្ងៃទី{" "}
-                                  {item.prohibited_until_date ||
-                                    "..../..../...."}
+                                <span
+                                  style={{
+                                    display: "block",
+                                    marginBottom: "4px",
+                                  }}
+                                >
+                                  <span
+                                    style={{
+                                      display: "inline-flex",
+                                      alignItems: "center",
+                                      gap: "4px",
+                                      marginRight: "12px",
+                                    }}
+                                  >
+                                    {item.diagnosis_result === "allowed" ? (
+                                      <BiCheckCircle />
+                                    ) : (
+                                      <BiCircle />
+                                    )}
+                                    អនុញ្ញាតផ្ដល់ឈាម - ចំណុះឈាមត្រូវបូម :{" "}
+                                    <b>{item.blood_amount_ml}</b> មីលីលីត្រ
+                                  </span>
                                   <br />
-                                  {item.diagnosis_result === "permanent_ban"
-                                    ? "☑"
-                                    : "□"}
-                                  ហាមផ្ដល់ឈាមជារៀងរហូត
+                                  <span
+                                    style={{
+                                      display: "inline-flex",
+                                      alignItems: "center",
+                                      gap: "4px",
+                                      marginRight: "12px",
+                                    }}
+                                  >
+                                    {item.diagnosis_result ===
+                                    "temporary_ban" ? (
+                                      <BiCheckCircle />
+                                    ) : (
+                                      <BiCircle />
+                                    )}
+                                    ហាមផ្ដល់ឈាមមួយរយៈរហូតដល់ថ្ងៃទី{" "}
+                                    {item.prohibited_until_date ||
+                                      "..../..../...."}
+                                  </span>
+                                  <br />
+                                  <span
+                                    style={{
+                                      display: "inline-flex",
+                                      alignItems: "center",
+                                      gap: "4px",
+                                    }}
+                                  >
+                                    {item.diagnosis_result ===
+                                    "permanent_ban" ? (
+                                      <BiCheckCircle />
+                                    ) : (
+                                      <BiCircle />
+                                    )}
+                                    ហាមផ្ដល់ឈាមជារៀងរហូត
+                                  </span>
                                 </span>
-                                <br />
-                                <span>
-                                  <b> មូលហេតុ៖ </b>
-                                  {isChecked(
-                                    "ck_hemoglobin",
-                                    item.rejection_reason
-                                  )
-                                    ? "☑"
-                                    : "□"}{" "}
-                                  អេម៉ូក្លូប៊ីន ឬ អេម៉ាតូគ្រីត /
-                                  {isChecked(
-                                    "ck_pressure",
-                                    item.rejection_reason
-                                  )
-                                    ? "☑"
-                                    : "□"}{" "}
-                                  សម្ពាធឈាម /
-                                  {isChecked("ck_weight", item.rejection_reason)
-                                    ? "☑"
-                                    : "□"}{" "}
-                                  ទម្ងន់ /
-                                  {isChecked(
-                                    "ck_history",
-                                    item.rejection_reason
-                                  )
-                                    ? "☑"
-                                    : "□"}{" "}
-                                  ប្រវត្តិជំងឺ
-                                  {isChecked("ck_status", item.rejection_reason)
-                                    ? "☑"
-                                    : "□"}{" "}
-                                  ស្ថានភាពប្រឈមមុខ /
-                                  {isChecked("ck_age", item.rejection_reason)
-                                    ? "☑"
-                                    : "□"}{" "}
-                                  អាយុ /
-                                  {isChecked("ck_early", item.rejection_reason)
-                                    ? "☑"
-                                    : "□"}{" "}
-                                  មុនកាលកំណត់ /
-                                  {isChecked("ck_other", item.rejection_reason)
-                                    ? "☑"
-                                    : "□"}{" "}
-                                  ផ្សេងទៀត
+
+                                <span
+                                  style={{
+                                    display: "block",
+                                    marginBottom: "8px",
+                                  }}
+                                >
+                                  <b>មូលហេតុ៖ </b>
+                                  {[
+                                    {
+                                      label: "អេម៉ូក្លូប៊ីន ឬ អេម៉ាតូគ្រីត",
+                                      key: "ck_hemoglobin",
+                                    },
+                                    { label: "សម្ពាធឈាម", key: "ck_pressure" },
+                                    { label: "ទម្ងន់", key: "ck_weight" },
+                                    {
+                                      label: "ប្រវត្តិជំងឺ",
+                                      key: "ck_history",
+                                    },
+                                    {
+                                      label: "ស្ថានភាពប្រឈមមុខ",
+                                      key: "ck_status",
+                                    },
+                                    { label: "អាយុ", key: "ck_age" },
+                                    { label: "មុនកាលកំណត់", key: "ck_early" },
+                                    { label: "ផ្សេងទៀត", key: "ck_other" },
+                                  ].map(({ label, key }, index) => (
+                                    <span
+                                      key={key}
+                                      style={{
+                                        display: "inline-flex",
+                                        alignItems: "center",
+                                        gap: "4px",
+                                        marginRight: "12px",
+                                      }}
+                                    >
+                                      {isChecked(key, item.rejection_reason) ? (
+                                        <BiCheckCircle />
+                                      ) : (
+                                        <BiCircle />
+                                      )}{" "}
+                                      {label}
+                                      {index === 3 || index === 6 ? (
+                                        <br />
+                                      ) : null}
+                                    </span>
+                                  ))}
                                 </span>
+
                                 <span>
-                                  <br />• បញ្ហាផ្សេងៗ:
+                                  • បញ្ហាផ្សេងៗ:
                                   .........................................................................
                                 </span>
                               </Col>

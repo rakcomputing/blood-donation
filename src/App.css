@@ -320,14 +320,12 @@ body {
 }
 
 .donation-box {
-  width: 170px;
-  background-color: #f7e1e1;
+ 
+ 
   color: #aa0303;
   font-weight: bold;
-  padding: 3px;
-  padding-left: 20px;
-
-  border-radius: 8px;
+ 
+ 
 }
 
 
@@ -357,6 +355,7 @@ body {
 
 }
 
-.print-content-profile p {
-    line-height: '1.8';
+.print-content    span b {
+    color: #0d4bbf;
+    line-height: 2;
 }

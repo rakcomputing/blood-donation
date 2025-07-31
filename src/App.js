@@ -202,7 +202,7 @@ function App() {
                     <b>
                       {data.full_name_kh}{" "}
                       {data.full_name_eng != null
-                        ? "| " + data.full_name_eng
+                        ? " - " + data.full_name_eng
                         : ""}
                     </b>
                     <br /> • លេខអត្តសញ្ញាណប័ណ្ណ: <b>{data.national_id}</b>

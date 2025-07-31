@@ -198,9 +198,14 @@ function App() {
                     </span>
                   </div>
                   <span>
-                    • គោត្តនាម និងនាមខ្លួន: <b>{data.full_name_kh} </b>
-                    &nbsp;&nbsp;&nbsp;&nbsp; • លេខអត្តសញ្ញាណប័ណ្ណ:{" "}
-                    <b>{data.national_id}</b>
+                    • គោត្តនាម និងនាមខ្លួន:{" "}
+                    <b>
+                      {data.full_name_kh}{" "}
+                      {data.full_name_eng != null
+                        ? "| " + data.full_name_eng
+                        : ""}
+                    </b>
+                    <br /> • លេខអត្តសញ្ញាណប័ណ្ណ: <b>{data.national_id}</b>
                   </span>
                   <br />
                   <span>

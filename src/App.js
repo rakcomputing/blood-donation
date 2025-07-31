@@ -199,7 +199,7 @@ function App() {
                   </div>
                   <span>
                     • គោត្តនាម និងនាមខ្លួន: <b>{data.full_name_kh} </b>
-                    &nbsp;&nbsp;&nbsp;&nbsp; លេខអត្តសញ្ញាណប័ណ្ណ:{" "}
+                    &nbsp;&nbsp;&nbsp;&nbsp; • លេខអត្តសញ្ញាណប័ណ្ណ:{" "}
                     <b>{data.national_id}</b>
                   </span>
                   <br />
@@ -337,7 +337,7 @@ function App() {
                           </Row>
                           <Row gutter={16}>
                             <Col span={6}>
-                              <span>• ប្រភេទអ្នកបរិច្ចាគឈាម:</span>
+                              <span>• ប្រភេទ:</span>
                             </Col>
                             <Col span={18}>
                               <span>
@@ -348,7 +348,7 @@ function App() {
                           </Row>
                           <Row gutter={16}>
                             <Col span={6}>
-                              <span>• ប្រភេទស្បោងឈាម:</span>
+                              <span>• ស្បោងឈាម:</span>
                             </Col>
                             <Col span={18}>
                               <span>
@@ -485,7 +485,7 @@ function App() {
                             </Row>
                             <Row gutter={16}>
                               <Col span={6}>
-                                <span>• ប្រភេទអ្នកបរិច្ចាគឈាម:</span>
+                                <span>• ប្រភេទ:</span>
                               </Col>
                               <Col span={18}>
                                 <span>
@@ -553,7 +553,7 @@ function App() {
                             </Row>
                             <Row gutter={16}>
                               <Col span={6}>
-                                <span>• ប្រភេទស្បោងឈាម:</span>
+                                <span>• ស្បោងឈាម:</span>
                               </Col>
                               <Col span={18}>
                                 <span>
@@ -631,7 +631,7 @@ function App() {
                                     ) : (
                                       <BiCircle />
                                     )}
-                                    អនុញ្ញាតផ្ដល់ឈាម - ចំណុះឈាមត្រូវបូម :{" "}
+                                    អនុញ្ញាតផ្ដល់ឈាម ចំណុះឈាម :{" "}
                                     <b>{item.blood_amount_ml}</b> មីលីលីត្រ
                                   </span>
                                   <br />
@@ -649,7 +649,7 @@ function App() {
                                     ) : (
                                       <BiCircle />
                                     )}
-                                    ហាមផ្ដល់ឈាមមួយរយៈរហូតដល់ថ្ងៃទី{" "}
+                                    ហាមផ្ដល់ឈាមរហូតដល់ថ្ងៃទី{" "}
                                     {item.prohibited_until_date ||
                                       "..../..../...."}
                                   </span>

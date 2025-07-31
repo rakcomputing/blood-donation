@@ -358,4 +358,5 @@ body {
 .print-content    span b {
     color: #0d4bbf;
     line-height: 2;
+    text-decoration: none
 }

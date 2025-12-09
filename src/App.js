@@ -150,7 +150,7 @@ function App() {
                           </span>
                         </span>
                         <span className="header-text">
-                          មន្ទីរសុខាភិបាលនៃរដ្ឋបាល <br />
+                          មន្ទីរសុខាភិបាលនៃរដ្ឋបាលខេត្ត <br />
                         </span>
 
                         <span className="header-text">

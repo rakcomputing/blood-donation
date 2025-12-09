@@ -18,7 +18,7 @@ function App() {
     try {
       setLoading(true);
       const res = await fetch(
-        `https://his-api.votmean.app/api/donatorqrcodeintergrate/${id}`
+        `https://datacenterapi.votmean.app/api/donatorqrcodeintergrate/${id}`
       );
 
       if (!res.ok) {

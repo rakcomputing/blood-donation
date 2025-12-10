@@ -655,10 +655,12 @@ function App() {
                                       <BiCircle />
                                     )}
                                     ហាមផ្ដល់ឈាមរហូតដល់ថ្ងៃទី:
-                                    { dayjs(item.prohibited_until_date).format(
-                                      "DD/MM/YYYY"
-                                    ) ||
-                                      "..../..../...."}
+                                 {
+                                            dayjs(item.prohibited_until_date).isValid()
+                                              ? dayjs(item.prohibited_until_date).format("DD/MM/YYYY")
+                                              : "../..../...."
+                                          }
+
                                   </span>
                                   <br />
                                   <span

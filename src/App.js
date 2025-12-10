@@ -425,7 +425,7 @@ function App() {
                               <Col span={12}>
                                 <span>
                                   • លេខកូដកន្លែង : ...
-                                  <b>{dataDonor?.donator_code}</b>
+                                  <b>{item.donator_code}</b>
                                   ...
                                 </span>
                               </Col>
@@ -655,7 +655,9 @@ function App() {
                                       <BiCircle />
                                     )}
                                     ហាមផ្ដល់ឈាមរហូតដល់ថ្ងៃទី:
-                                    {item.prohibited_until_date ||
+                                    { dayjs(item.prohibited_until_date).format(
+                                      "DD/MM/YYYY"
+                                    ) ||
                                       "..../..../...."}
                                   </span>
                                   <br />
@@ -726,7 +728,7 @@ function App() {
 
                                 <span>
                                   • បញ្ហាផ្សេងៗ:
-                                  .........................................................................
+                                  ..{item.other_issues}.........
                                 </span>
                               </Col>
                             </Row>
